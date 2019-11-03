@@ -25,10 +25,12 @@ export class ListRoomPage {
     if(this.roomCategory=="อพาร์เมนท์"){
         this.keyAPI.loaddata_apartment().subscribe(data=>{
           this.typeRoom=data;
+          console.log(data);
         });
     }else if(this.roomCategory=="หอพัก"){
         this.keyAPI.loaddata_dorm().subscribe(data=>{
           this.typeRoom=data;
+          console.log(data);
         });
   }else if(this.roomCategory =="คอนโดมิเนียม"){
     console.log("คอนโดมิเนียม_Notdata");

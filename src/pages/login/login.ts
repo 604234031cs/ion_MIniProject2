@@ -1,6 +1,6 @@
 import { Http, HttpModule } from '@angular/http';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Events } from 'ionic-angular';
 import "rxjs/add/operator/map";
 
 
@@ -16,7 +16,7 @@ export class LoginPage {
   regisResult: any = {};
   datauser:any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http ,
-    public alertCtrl: AlertController ) {
+    public alertCtrl: AlertController ,public events:Events) {
     this.regisResult.username = "";
     this.regisResult.password = "";
     }
@@ -41,6 +41,7 @@ export class LoginPage {
         
         if(data!="NULL")
         {
+          this.events.publish('user:Loggedin');
           this.navCtrl.setRoot('TestPage',data);
         }else{
           let alert = this.alertCtrl.create({
@@ -68,10 +69,7 @@ export class LoginPage {
       alert.present();
     }
   }
-
-
   goSignUp(){
     this.navCtrl.push('SignUpPage');
   }
-
 }

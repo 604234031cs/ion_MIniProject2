@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { Http } from '@angular/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
@@ -48,11 +49,29 @@ export class SignUpPage {
         username:this.regisResult.username,
         password:this.regisResult.password
       });
+      let alert = this.alertCtrl.create({
+        message: 'ยืนยันการสมัคร',
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              this.http.post(url,datapost)
+              .subscribe(data=>{
+               console.log(data);
+               this.navCtrl.push(LoginPage);
+              });
+            }
+          },
+          {
+            text: 'Cancle',
+            handler: () => {
+              console.log('Disagree clicked');
+            }
+          }
 
-       this.http.post(url,datapost)
-       .subscribe(data=>{
-        console.log(data);
-       });
+        ]
+      });
+      alert.present();
  
     }else{
       let alert = this.alertCtrl.create({

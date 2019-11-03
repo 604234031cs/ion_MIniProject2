@@ -1,3 +1,8 @@
+import { LogoutPage } from './../pages/logout/logout';
+import { AccountPage } from './../pages/account/account';
+import { TestPage } from './../pages/test/test';
+import { HeaderMenuComponent } from './../components/header-menu/header-menu';
+import { InsertRoomPage } from './../pages/insert-room/insert-room';
 import { PopoverComponent } from './../components/popover/popover';
 import { VsroomPage } from './../pages/vsroom/vsroom';
 import { CategoryPage } from './../pages/category/category';
@@ -23,13 +28,18 @@ import { HttpClientModule } from '@angular/common/http';
      LoginPage,
     CategoryPage,
     VsroomPage,
-    PopoverComponent
+    PopoverComponent,
+    InsertRoomPage,
+    HeaderMenuComponent,
+    AccountPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+ 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,8 +49,11 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPage,
     CategoryPage,
     VsroomPage,
-    PopoverComponent
-    
+    PopoverComponent,
+    InsertRoomPage,
+    HeaderMenuComponent,
+    AccountPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

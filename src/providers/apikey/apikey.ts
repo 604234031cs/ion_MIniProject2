@@ -28,7 +28,11 @@ export class ApikeyProvider {
   }
 
   loadDeteil(roomid:string){
-    let url  = 'http://localhost/todoslim3/public/deteil/ '+roomid;
+    let url  = 'http://localhost/todoslim3/public/deteil/'+roomid;
+    return this.http.get(url);
+  }
+  loadImg(roomid:string){
+    let url = 'http://localhost/todoslim3/public/img/'+roomid;
     return this.http.get(url);
   }
 

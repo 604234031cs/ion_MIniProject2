@@ -1,7 +1,9 @@
+import { InsertRoomPage } from './../insert-room/insert-room';
+import { AccountPage } from './../account/account';
 import { PopoverComponent } from './../../components/popover/popover';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -11,7 +13,9 @@ import { IonicPage, NavController, NavParams, MenuController, PopoverController 
 export class TestPage {
   datauser:any=[];
   ev:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,
+    public modalController: ModalController) {
+     
   }
 
   ionViewDidLoad() {
@@ -27,4 +31,8 @@ export class TestPage {
       ev:myevent 
     });
   }
+
+
+
+  
 }

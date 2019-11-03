@@ -1,11 +1,12 @@
 import { Http } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ApikeyProvider } from './../../providers/apikey/apikey';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component ,ViewChild} from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingCmp, Img} from 'ionic-angular';
 import { HttpErrorResponse } from '@angular/common/http';
 import "rxjs/add/operator/map";
-/**
+
+ /**
  * Generated class for the DeteilPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -19,23 +20,25 @@ import "rxjs/add/operator/map";
 })
 export class DeteilPage {
 
- dataDeteil:string="";
-  DeteilRoom:any=[];
+
+ dataDeteil:any;
+ showdeteileData:any=[];
+ showdeteilImg:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,private keyAPI : ApikeyProvider) {
-    this.deteilRoom();
+    this.loadDeteil();
+    
   }
 
-  ionViewDidLoad() {
+  loadDeteil() {
   this.dataDeteil=this.navParams.data;
-  console.log(this.dataDeteil);
-  }
-
-  deteilRoom(){
-    this.keyAPI.loadDeteil(this.dataDeteil).subscribe((data:any=[])=>{
-    this.deteilRoom =data;
-      console.log(this.deteilRoom);
+  this.keyAPI.loadDeteil(this.dataDeteil).subscribe((data:any=[])=>{
+     this.showdeteileData = data;
+    console.log(data);
     }   
     );
+
   }
 
-}
+  }
+
+
