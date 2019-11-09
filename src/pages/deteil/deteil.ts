@@ -20,8 +20,7 @@ import "rxjs/add/operator/map";
 })
 export class DeteilPage {
 
-
- dataDeteil:any;
+ dataDeteil:any=[];
  showdeteileData:any=[];
  showdeteilImg:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,private keyAPI : ApikeyProvider) {
@@ -31,12 +30,15 @@ export class DeteilPage {
 
   loadDeteil() {
   this.dataDeteil=this.navParams.data;
+  console.log(this.dataDeteil);
   this.keyAPI.loadDeteil(this.dataDeteil).subscribe((data:any=[])=>{
-     this.showdeteileData = data;
-    console.log(data);
-    }   
+    console.log(data['rooms']);
+    console.log(data['img']);
+    this.showdeteileData = data['rooms'];
+    this.showdeteilImg=data['img'];
+    }
     );
-
+   
   }
 
   }

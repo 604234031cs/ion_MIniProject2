@@ -14,13 +14,20 @@ export class ApikeyProvider {
   constructor(public http: HttpClient) {
 
 }
-
+  loaddata_condo(){
+    let url = 'http://localhost/todoslim3/public/condo';
+    return this.http.get(url);
+  }
 
   loaddata_apartment(){
     let url = 'http://localhost/todoslim3/public/apartment';
     return this.http.get(url);
   }
 
+  loaddata_mansion(){
+    let url = 'http://localhost/todoslim3/public/mansion';
+    return this.http.get(url);
+  }
 
   loaddata_dorm(){
     let url = 'http://localhost/todoslim3/public/dorm';
@@ -28,11 +35,13 @@ export class ApikeyProvider {
   }
 
   loadDeteil(roomid:string){
-    let url  = 'http://localhost/todoslim3/public/deteil/'+roomid;
+    let url  = 'http://localhost/todoslim3/public/deteil/' + roomid;
     return this.http.get(url);
   }
-  loadImg(roomid:string){
-    let url = 'http://localhost/todoslim3/public/img/'+roomid;
+  
+
+  searchroom(query){
+    let url  = 'http://localhost/todoslim3/public/search/room/'+query;
     return this.http.get(url);
   }
 

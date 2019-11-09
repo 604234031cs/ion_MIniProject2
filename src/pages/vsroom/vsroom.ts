@@ -1,12 +1,8 @@
+import { TestPage } from './../test/test';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the VsroomPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -14,12 +10,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'vsroom.html',
 })
 export class VsroomPage {
-
+  result:any={};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VsroomPage');
+  }
+
+  gettest(){
+    console.log("ประเภทห้อง",this.result.type);
+    console.log("จำกัดเพศ",this.result.category);
   }
 
 }

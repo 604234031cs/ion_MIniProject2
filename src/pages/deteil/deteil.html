@@ -8,13 +8,33 @@
 <ion-content padding>
     <ion-card>
         <ion-slides pager="true" >
-  <ion-slide *ngFor="let show of showdeteilImg ">
+      <ion-slide *ngFor="let show of showdeteilImg ">
           <ion-thumbnail item-start>
             <img src="assets/imgs/{{show.pic_name}}" style="width:300px;height:320px;" />     
-          </ion-thumbnail>
+          </ion-thumbnail> 
+          {{show.room_province}}
   </ion-slide>
 </ion-slides>
 </ion-card>
 
-
+<ion-list *ngFor="let show of showdeteileData">
+  <ion-item>
+    <p>ชื่อห้องเช่า : {{show.room_name}} </p>
+  </ion-item>
+  <ion-item>
+      <p>ที่อยู่ : {{show.rooms_address}}</p>
+    </ion-item>
+    <ion-item>
+        <p>ราคา : {{show.room_price}}</p>
+      </ion-item>
+      <ion-item>
+          <p>สิ่งอำนวยความสะดวก : {{show.category_name}}</p>
+        </ion-item>
+        <ion-item>
+            <p>จำกัดเพศผู้เช่า : {{show.room_category}}</p>
+          </ion-item>
+          <ion-item>
+              <p>เบอร์ติดต่อ : {{show.room_tell}}</p>
+            </ion-item>
+</ion-list>
 </ion-content>
