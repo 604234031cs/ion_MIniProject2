@@ -69,4 +69,9 @@ export class ApikeyProvider {
     let url ='http://10.68.8.0/todoslim3/public/showroom/'+room;
     return this.http.get(url);
   }
+
+  showcom(id){
+    let url = 'http://10.68.8.0/todoslim3/public/com/'+id;
+    return this.http.get(url);
+  }
 }

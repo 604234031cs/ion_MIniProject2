@@ -15,12 +15,10 @@ export class LoginPage {
 
   regisResult: any = {};
   datauser:any=[];
-  user:any;
-  value:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http ,
     public alertCtrl: AlertController ,public events:Events) {
     this.regisResult.username = "";
-      
+     this.regisResult.password = ""; 
     }
 
   ionViewDidLoad() {
@@ -40,18 +38,11 @@ export class LoginPage {
       
       this.http.post(url,datapost).map(res=>res.json())
       .subscribe((data: any) => {
-        this.value.response = data._body;
-        var res = this.value.response.split("|");
       
         if(data!="NULL")
         {
           this.events.publish('user:Loggedin');
-          sessionStorage.setItem("regisResult.username",res[0]);
-          sessionStorage.setItem("user",this.regisResult.password);
-
-
-
-          // this.navCtrl.setRoot('TestPage',data);
+          this.navCtrl.setRoot('TestPage',data);
         
         }else{
           let alert = this.alertCtrl.create({

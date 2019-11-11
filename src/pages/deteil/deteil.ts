@@ -26,6 +26,9 @@ export class DeteilPage {
  member:any={};
 roomdeteil : any;
  score:any;
+ datcom:any;
+shcom:any=[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private keyAPI : ApikeyProvider,private socialSharing : SocialSharing,private actionSheetController:ActionSheetController,
     private events : Events,public http:HttpClient) {
@@ -48,6 +51,11 @@ roomdeteil : any;
     this.showdeteilImg=data['img'];
     }
     );
+    this.keyAPI.showcom(this.dataDeteil).subscribe((data)=>{
+      this.datcom =data;
+    });
+
+   
    
   }
 
@@ -73,9 +81,25 @@ roomdeteil : any;
 
 
 
-  textroom(){
-    console.log(this.member.text);
+  textroom(roomid){
+   
+    if(this.member.text != ""){
+      console.log(this.member.text);
+      console.log(roomid);
+      let url = 'http://localhost/database/comment.php';
+      let datapost = JSON.stringify({
+        text:this.member.text,
+        idroom:roomid
+      });
+      this.http.post(url,datapost).subscribe(data=>{
+        console.log(data);
+      });
+      this.member.text ="";
+    }else{
+      console.log("FOUND");
+    }
   }
+
 
   scoreview(roomid){
     if(this.score != ''){
@@ -93,8 +117,17 @@ roomdeteil : any;
       console.log("FOUND");
     }
     
-  }
+  } 
 
+  // loadcomment(){
+  //   this.datcom=this.navParams.data;
+  //   console.log(this.datcom);
+  //   this.keyAPI.showcom(this.datcom).subscribe((data:any=[])=>{
+  //     this.shcom = data;
+  //     console.log(shcom);
+  //     }
+  //     );
+  // }
 
 
   }
