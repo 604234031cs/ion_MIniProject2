@@ -5,6 +5,7 @@
   </ion-navbar>
 
 </ion-header>
+
 <ion-content padding>
     <ion-card>
         <ion-slides pager="true" >
@@ -17,24 +18,45 @@
 </ion-slides>
 </ion-card>
 
+
 <ion-list *ngFor="let show of showdeteileData">
   <ion-item>
-    <p>ชื่อห้องเช่า : {{show.room_name}} </p>
+    <p><b>ชื่อห้องเช่า :</b> {{show.room_name}} </p>
   </ion-item>
   <ion-item>
-      <p>ที่อยู่ : {{show.rooms_address}}</p>
+      <p><b>ที่อยู่ :</b> {{show.rooms_address}}</p>
     </ion-item>
     <ion-item>
-        <p>ราคา : {{show.room_price}}</p>
+        <p><b>ราคา :</b> {{show.room_price}}</p>
       </ion-item>
       <ion-item>
-          <p>สิ่งอำนวยความสะดวก : {{show.category_name}}</p>
+          <p><b>สิ่งอำนวยความสะดวก :</b> {{show.category_name}}</p>
         </ion-item>
         <ion-item>
-            <p>จำกัดเพศผู้เช่า : {{show.room_category}}</p>
+            <p><b>จำกัดเพศผู้เช่า :</b> {{show.room_category}}</p>
           </ion-item>
           <ion-item>
-              <p>เบอร์ติดต่อ : {{show.room_tell}}</p>
+              <p><b>เบอร์ติดต่อ :</b> {{show.room_tell}}</p>
             </ion-item>
+          <br>
+            <button ion-button block (click)="shareRoom(show)" >SHARE ON FACEBOOK</button>
+            <br>
 </ion-list>
+<ion-note>ความคิดเห็น</ion-note>
+<br>
+
+<ion-item >    
+    <ion-icon name="person"></ion-icon>
+    <ion-label>
+      <ion-icon name="contact"></ion-icon>
+    </ion-label>
+    <ion-input type="" [(ngModel)]="member.text" ></ion-input>
+  </ion-item>
+
+  <ion-buttons end>
+      <button ion-button small color="secondary" outline (click)="textroom()">
+       ส่ง
+      </button>
+    </ion-buttons>
+
 </ion-content>

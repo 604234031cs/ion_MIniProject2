@@ -7,25 +7,23 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+
     <ion-item>
         <ion-label>เลือกห้องเช่า</ion-label>
-        <ion-select [(ngModel)]="result.category">
-            <ion-option value="คอนโนมิเนียม">คอนโนมิเนียม</ion-option>
-            <ion-option value="อพาร์ทเม้นท์">อพาร์ทเม้นท์</ion-option>
-            <ion-option value="แมนชัน">แมนชัน</ion-option>
-            <ion-option value="หอพัก">หอพัก</ion-option>
+        <ion-select [(ngModel)]="result.room1">
+            <ion-option *ngFor="let get of value" value={{get.room_name}}>{{get.room_name}}</ion-option>
         </ion-select>
       </ion-item>
+
       <ion-note>กับ</ion-note>
       <ion-item>
-          <ion-label>ประเภทห้องเช่า</ion-label>
-          <ion-select [(ngModel)]="result.type">
-            <ion-option value="หญิง">หญิง</ion-option>
-            <ion-option value="ชาย">ชาย</ion-option>
-            <ion-option value="ไม่จำกัด">ไม่จำกัด</ion-option>
+
+          <ion-label>เลือกห้องเช่า</ion-label>
+          <ion-select [(ngModel)]="result.room2">
+            <ion-option *ngFor ="let get of value"  value={{get.room_name}}>{{get.room_name}}</ion-option>
           </ion-select>
         </ion-item>
 
-      <button ion-button (click)="gettest()">ส่ง</button>
+      <button ion-button (click)="getRoomToRoom()">ส่ง</button>
 
 </ion-content>

@@ -18,7 +18,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { ApikeyProvider } from '../providers/apikey/apikey';
 import { HttpClientModule } from '@angular/common/http';
-
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     StatusBar,
-    SplashScreen,ApikeyProvider,
+    SplashScreen,ApikeyProvider,SocialSharing,ImagePicker,File,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

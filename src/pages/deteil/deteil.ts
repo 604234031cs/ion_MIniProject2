@@ -2,10 +2,10 @@ import { Http } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ApikeyProvider } from './../../providers/apikey/apikey';
 import { Component ,ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingCmp, Img} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingCmp, Img, ActionSheetController} from 'ionic-angular';
 import { HttpErrorResponse } from '@angular/common/http';
 import "rxjs/add/operator/map";
-
+import { SocialSharing } from '@ionic-native/social-sharing';
  /**
  * Generated class for the DeteilPage page.
  *
@@ -23,9 +23,11 @@ export class DeteilPage {
  dataDeteil:any=[];
  showdeteileData:any=[];
  showdeteilImg:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private keyAPI : ApikeyProvider) {
+ member:any={};
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private keyAPI : ApikeyProvider,private socialSharing : SocialSharing,private actionSheetController:ActionSheetController) {
     this.loadDeteil();
-    
   }
 
   loadDeteil() {
@@ -40,6 +42,36 @@ export class DeteilPage {
     );
    
   }
+
+  shareRoom(show){
+  let roomshare = this.actionSheetController.create({
+    title:"Share room",
+    buttons:[
+      {
+        text:"Share on Facebook",
+        icon:"logo-facebook",
+        handler:()=>{
+          this.socialSharing.shareViaFacebook(show.room_name,show.room_address,show.room_category).then((ok) => {
+           console.log(ok);
+          }).catch((err) => {
+           console.log(err);
+          });
+        }
+      }
+    ]
+  });
+  roomshare.present();
+  } 
+
+
+
+  textroom(){
+    console.log(this.member.text);
+  }
+
+
+
+
 
   }
 

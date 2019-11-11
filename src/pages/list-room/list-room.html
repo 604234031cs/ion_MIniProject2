@@ -15,12 +15,12 @@
 
 </ion-header>
 <ion-content padding>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)" clearInput></ion-searchbar>
 
     <ion-fab below  right edge>
         <button ion-fab mini><ion-icon name="add"></ion-icon></button>
         <ion-fab-list side="start">
-          <button ion-fab ><ion-icon name="md-share"></ion-icon></button>
+          <button ion-fab (click)="search()"><ion-icon name="md-share"></ion-icon></button>
         </ion-fab-list>
       </ion-fab>
 
@@ -31,10 +31,7 @@
           <img src="assets/imgs/{{get.title_img}}">
         </ion-thumbnail>
         <h2>ชื่อ:{{get.room_name}}</h2>
-        <p>ที่อยู่่ : {{get.room_ip}}
-          {{get.room_subdistrict}}
-          {{get.room_District}}
-          {{get.room_province}} </p>
+        <p>ที่อยู่่ : {{get.rooms_address}} </p>
       
           <p> ราคา : {{get.room_price}} THB</p>
         <button ion-button color="primary" (click)="showDeteil(get.room_id,get.category_name)">รายละเอียด</button>

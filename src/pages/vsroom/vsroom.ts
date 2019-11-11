@@ -1,3 +1,4 @@
+import { ApikeyProvider } from './../../providers/apikey/apikey';
 import { TestPage } from './../test/test';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -11,17 +12,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class VsroomPage {
   result:any={};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  value;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public keyapi : ApikeyProvider) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VsroomPage');
+    this.keyapi.loadrooms().subscribe(data=>{
+     this.value = data;
+    });
   }
 
-  gettest(){
-    console.log("ประเภทห้อง",this.result.type);
-    console.log("จำกัดเพศ",this.result.category);
-  }
+  getRoomToRoom(){
+  console.log(this.result.room1);
+  console.log(this.result.room2);
+}
+  
+
 
 }
