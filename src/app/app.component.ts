@@ -1,3 +1,4 @@
+
 import { LogoutPage } from './../pages/logout/logout';
 import { HeaderMenuComponent } from './../components/header-menu/header-menu';
 import { HomePage } from './../pages/home/home';
@@ -18,7 +19,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
    @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any =HomePage;
   pages: Array<{title: string, component: any}>;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,

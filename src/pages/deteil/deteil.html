@@ -41,22 +41,40 @@
           <br>
             <button ion-button block (click)="shareRoom(show)" >SHARE ON FACEBOOK</button>
             <br>
-</ion-list>
-<ion-note>ความคิดเห็น</ion-note>
+  <ion-grid>
+      <ion-row padding>
+        <ion-col width-10>
+            <ionic3-star-rating 
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#f4e242" 
+            defaultColor = "#f4e242"
+            readonly="false"
+            [rating]="1">
+          </ionic3-star-rating>
+          คะแนน :{{score}}
+        </ion-col>
+        <ion-col width-2>
+            <ion-buttons end>
+          <button ion-button small (click)="scoreview(show.room_id)"> ให้คะแนน</button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-note>ความคิดเห็น</ion-note>
 <br>
-
-<ion-item >    
-    <ion-icon name="person"></ion-icon>
-    <ion-label>
-      <ion-icon name="contact"></ion-icon>
-    </ion-label>
-    <ion-input type="" [(ngModel)]="member.text" ></ion-input>
-  </ion-item>
-
+    <ion-item >    
+        <ion-icon name="person"></ion-icon>
+        <ion-label>
+          <ion-icon name="contact"></ion-icon>
+        </ion-label>
+        <ion-input type="" [(ngModel)]="member.text" ></ion-input>
+      </ion-item>
   <ion-buttons end>
       <button ion-button small color="secondary" outline (click)="textroom()">
        ส่ง
       </button>
     </ion-buttons>
-
+  </ion-list>
 </ion-content>

@@ -1,5 +1,5 @@
+import { DeteilPage } from './../pages/deteil/deteil';
 import { LogoutPage } from './../pages/logout/logout';
-import { AccountPage } from './../pages/account/account';
 import { TestPage } from './../pages/test/test';
 import { HeaderMenuComponent } from './../components/header-menu/header-menu';
 import { InsertRoomPage } from './../pages/insert-room/insert-room';
@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { File } from '@ionic-native/file';
+import { StarRatingModule } from 'ionic3-star-rating';
+
 
 @NgModule({
   declarations: [
@@ -33,15 +35,17 @@ import { File } from '@ionic-native/file';
     PopoverComponent,
     InsertRoomPage,
     HeaderMenuComponent,
-    AccountPage,
-    LogoutPage
+    
+    LogoutPage,
+   
+   
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
- 
+    StarRatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,7 +58,6 @@ import { File } from '@ionic-native/file';
     PopoverComponent,
     InsertRoomPage,
     HeaderMenuComponent,
-    AccountPage,
     LogoutPage
   ],
   providers: [

@@ -10,57 +10,63 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class ApikeyProvider {
-
+  
   constructor(public http: HttpClient) {
 
 }
   loaddata_condo(){
-    let url = 'http://localhost/todoslim3/public/condo';
+    let url = 'http://10.68.8.0/todoslim3/public/condo';
     return this.http.get(url);
   }
 
   loaddata_apartment(){
-    let url = 'http://localhost/todoslim3/public/apartment';
+    let url = 'http://10.68.8.0/todoslim3/public/apartment';
     return this.http.get(url);
   }
 
   loaddata_mansion(){
-    let url = 'http://localhost/todoslim3/public/mansion';
+    let url = 'http://10.68.8.0/todoslim3/public/mansion';
     return this.http.get(url);
   }
 
   loaddata_dorm(){
-    let url = 'http://localhost/todoslim3/public/dorm';
+    let url = 'http://10.68.8.0/todoslim3/public/dorm';
     return this.http.get(url);
   }
 
   loadDeteil(roomid:string){
-    let url  = 'http://localhost/todoslim3/public/deteil/' + roomid;
+    let url  = 'http://10.68.8.0/todoslim3/public/deteil/' + roomid;
     return this.http.get(url);
   }
   
   searchroom(query){
-    let url  = 'http://localhost/todoslim3/public/search/room/'+query;
+    let url  = 'http://10.68.8.0/todoslim3/public/search/room/'+query;
     return this.http.get(url);
   }
 
   loadrooms(){
-    let url = 'http://localhost/todoslim3/public/roomlist';
+    let url = 'http://10.68.8.0/todoslim3/public/roomlist';
     return this.http.get(url);
   }
 //2000
   loadprice_1(){
-    let url ='http://localhost/todoslim3/public/room/price20';
+    let url ='http://10.68.8.0/todoslim3/public/room/price20';
     return this.http.get(url);
   }
   //2500
   loadprice_2(){
-    let url ='http://localhost/todoslim3/public/room/price25';
+    let url ='http://10.68.8.0/todoslim3/public/room/price25';
     return this.http.get(url);
   }
   //3000
   loadprice_3(){
-    let url ='http://localhost/todoslim3/public/room/price30';
+    let url ='http://10.68.8.0/todoslim3/public/room/price30';
+    return this.http.get(url);
+  }
+
+  //showroom
+  showroom(room){
+    let url ='http://10.68.8.0/todoslim3/public/showroom/'+room;
     return this.http.get(url);
   }
 }

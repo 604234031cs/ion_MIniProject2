@@ -15,10 +15,12 @@ export class LoginPage {
 
   regisResult: any = {};
   datauser:any=[];
+  user:any;
+  value:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http ,
     public alertCtrl: AlertController ,public events:Events) {
     this.regisResult.username = "";
-    this.regisResult.password = "";
+      
     }
 
   ionViewDidLoad() {
@@ -29,7 +31,7 @@ export class LoginPage {
     if (this.regisResult.username != "" && this.regisResult.password != "") {
       console.log("user", this.regisResult.username);
       console.log("pass", this.regisResult.password);
-      let url = 'http://localhost/database/login.php';
+      let url = 'http://10.68.8.0/database/login.php';
       let datapost = JSON.stringify({
         user: this.regisResult.username,
         pass: this.regisResult.password
@@ -38,11 +40,19 @@ export class LoginPage {
       
       this.http.post(url,datapost).map(res=>res.json())
       .subscribe((data: any) => {
-        
+        this.value.response = data._body;
+        var res = this.value.response.split("|");
+      
         if(data!="NULL")
         {
           this.events.publish('user:Loggedin');
-          this.navCtrl.setRoot('TestPage',data);
+          sessionStorage.setItem("regisResult.username",res[0]);
+          sessionStorage.setItem("user",this.regisResult.password);
+
+
+
+          // this.navCtrl.setRoot('TestPage',data);
+        
         }else{
           let alert = this.alertCtrl.create({
             message: 'โปรดใส่ username และ password ให้ถูกต้อง',

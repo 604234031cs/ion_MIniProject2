@@ -81,22 +81,22 @@ export class InsertRoomPage {
       }
     }
 
-    // importImg(){
-    //   var option:ImagePickerOptions={
-    //     maximumImagesCount:5,
-    //     width:100,
-    //     height:100
-    //   }
-    //   this.imagePicker.getPictures(option).then((value)=>{
-    //     for(var intervar = 0;intervar<value.length;intervar++){
-    //       let filename = value[intervar].substring(value[intervar].lastIndexof('/')+1);
-    //       let path = value[intervar].substring(0,value[intervar].lasIndexof('/')+1);
-    //       this.file.readAsDataURL(path,filename).then((toBase64String)=>{
-    //         this.images.push(toBase64String); 
-    //       })
-    //     } 
-    //   });
-    // }
+    importImg(){
+      var option:ImagePickerOptions={
+        maximumImagesCount:5,
+        width:100,
+        height:100
+      }
+      this.imagePicker.getPictures(option).then((value)=>{
+        for(var intervar = 0;intervar<value.length;intervar++){
+          let filename = value[intervar].substring(value[intervar].lastIndexof('/')+1);
+          let path = value[intervar].substring(0,value[intervar].lasIndexof('/')+1);
+          this.file.readAsDataURL(path,filename).then((toBase64String)=>{
+            this.images.push(toBase64String); 
+          })
+        } 
+      });
+    }
 
 
 

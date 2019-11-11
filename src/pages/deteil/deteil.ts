@@ -2,8 +2,8 @@ import { Http } from '@angular/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ApikeyProvider } from './../../providers/apikey/apikey';
 import { Component ,ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingCmp, Img, ActionSheetController} from 'ionic-angular';
-import { HttpErrorResponse } from '@angular/common/http';
+import { IonicPage, NavController, NavParams, LoadingCmp, Img, ActionSheetController, Events} from 'ionic-angular';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import "rxjs/add/operator/map";
 import { SocialSharing } from '@ionic-native/social-sharing';
  /**
@@ -24,11 +24,19 @@ export class DeteilPage {
  showdeteileData:any=[];
  showdeteilImg:any;
  member:any={};
-
+roomdeteil : any;
+ score:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private keyAPI : ApikeyProvider,private socialSharing : SocialSharing,private actionSheetController:ActionSheetController) {
+    private keyAPI : ApikeyProvider,private socialSharing : SocialSharing,private actionSheetController:ActionSheetController,
+    private events : Events,public http:HttpClient) {
     this.loadDeteil();
-  }
+    this.roomdeteil = this.navParams.get("data");
+
+    this.events.subscribe('star-rating:changed',(note)=> {
+      this.score =note;
+    });
+    
+}
 
   loadDeteil() {
   this.dataDeteil=this.navParams.data;
@@ -69,7 +77,23 @@ export class DeteilPage {
     console.log(this.member.text);
   }
 
-
+  scoreview(roomid){
+    if(this.score != ''){
+      console.log(this.score);
+      console.log(roomid);
+      let url = 'http://localhost/database/upscore.php';
+      let datapost = JSON.stringify({
+        score: this.score,
+        idroom:roomid
+      });
+      this.http.post(url,datapost).subscribe(data=>{
+        console.log(data);
+      })
+    }else{
+      console.log("FOUND");
+    }
+    
+  }
 
 
 

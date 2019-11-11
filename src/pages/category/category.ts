@@ -18,9 +18,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CategoryPage {
 
   category = [{name:'คอนโดมิเนียม',imgeUrl:'assets/imgs/คอนโดมิเนียม.png'},
-              {name:'อพาร์เมนท์',imgeUrl:'/assets/imgs/อพาร์เมนท์.jpg'},
-              {name:'แมนชัน',imgeUrl:'/assets/imgs/แมชัน.jpg'},
-              {name:'หอพัก',imgeUrl:'/assets/imgs/หอพัก.jpg'}
+              {name:'อพาร์เมนท์',imgeUrl:'assets/imgs/อพาร์เมนท์.jpg'},
+              {name:'แมนชัน',imgeUrl:'assets/imgs/แมชัน.jpg'},
+              {name:'หอพัก',imgeUrl:'assets/imgs/หอพัก.jpg'}
              ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
