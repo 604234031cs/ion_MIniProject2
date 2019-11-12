@@ -29,7 +29,7 @@ export class LoginPage {
     if (this.regisResult.username != "" && this.regisResult.password != "") {
       console.log("user", this.regisResult.username);
       console.log("pass", this.regisResult.password);
-      let url = 'http://10.68.8.0/database/login.php';
+      let url = 'http://10.8.8.39/database/login.php';
       let datapost = JSON.stringify({
         user: this.regisResult.username,
         pass: this.regisResult.password

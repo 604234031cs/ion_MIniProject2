@@ -41,7 +41,7 @@ export class SignUpPage {
     console.log("username",this.regisResult.username); 
     console.log("email",this.regisResult.password);
 
-    let url= 'http://localhost/database/signup.php';
+    let url= 'http://10.8.8.39/database/signup.php';
        let datapost = JSON.stringify({
         name:this.regisResult.name,
         sname:this.regisResult.surname,

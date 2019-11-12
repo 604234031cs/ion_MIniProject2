@@ -7,8 +7,17 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-
-  <button ion-button block (click)="importImg()">เลือกจากอัลบัม</button>
+  <!-- <ion-row>
+    <ion-col>
+      <div class="images">
+        <div class="one-image" *ngFor="let img of imageResponse">
+          <img src="{{img}}" alt="" srcset="">
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  <button ion-button block (click)="importImg()">เลือกจากอัลบัม</button> -->
   <ion-item>
     <ion-label floating>ชื่อห้องเช่า</ion-label>
     <ion-input type="" [(ngModel)]="result.roomname"></ion-input>

@@ -21,6 +21,7 @@ export class InsertRoomPage {
   result:any={};
   image:any=[];
   images:any=[];
+  imageResponse: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,public http:Http
     ,public loadingCtrl : LoadingController,private imagePicker: ImagePicker,public file:File) {
     this.result.roomname="";
@@ -47,7 +48,7 @@ export class InsertRoomPage {
     console.log("สิ่งอำนวยความสะดวก",this.result.facilities);
     console.log("ที่อยู่",this.result.address);
 
-    let url = 'http://localhost/database/addroom.php';
+    let url = 'http://10.8.8.39/database/addroom.php';
     
     let datapost = JSON.stringify({
       name:this.result.roomname,
@@ -81,27 +82,21 @@ export class InsertRoomPage {
       }
     }
 
-    importImg(){
-      var option:ImagePickerOptions={
-        maximumImagesCount:5,
-        width:100,
-        height:100
-      }
-      this.imagePicker.getPictures(option).then((value)=>{
-        for(var intervar = 0;intervar<value.length;intervar++){
-          let filename = value[intervar].substring(value[intervar].lastIndexof('/')+1);
-          let path = value[intervar].substring(0,value[intervar].lasIndexof('/')+1);
-          this.file.readAsDataURL(path,filename).then((toBase64String)=>{
-            this.images.push(toBase64String); 
-          })
-        } 
-      });
-    }
+  //   importImg(){
+  //     var option:ImagePickerOptions={
+  //       maximumImagesCount:5,
+  //       width:100,
+  //       height:100
+  //     }
+  //     this.imageResponse = [];
+  //     this.imagePicker.getPictures(option).then((value)=>{
+  //       for (var i = 0; i < value.length; i++) {
+  //         this.imageResponse.push('data:image/jpeg;base64,' + value[i]);
+  //       }
+  //   }, (err) => {
+  //     alert(err);
+  //   }
+  //   );
+  // }
 
-
-
-
-
-  }
-
-
+}

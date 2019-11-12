@@ -67,11 +67,7 @@ shcom:any=[];
         text:"Share on Facebook",
         icon:"logo-facebook",
         handler:()=>{
-          this.socialSharing.shareViaFacebook(show.room_name,show.room_address,show.room_category).then((ok) => {
-           console.log(ok);
-          }).catch((err) => {
-           console.log(err);
-          });
+          this.socialSharing.shareViaFacebook(show.room_name,show.room_address,show.room_category);
         }
       }
     ]
@@ -86,7 +82,7 @@ shcom:any=[];
     if(this.member.text != ""){
       console.log(this.member.text);
       console.log(roomid);
-      let url = 'http://localhost/database/comment.php';
+      let url = 'http://10.8.8.39/database/comment.php';
       let datapost = JSON.stringify({
         text:this.member.text,
         idroom:roomid
@@ -105,7 +101,7 @@ shcom:any=[];
     if(this.score != ''){
       console.log(this.score);
       console.log(roomid);
-      let url = 'http://localhost/database/upscore.php';
+      let url = 'http://10.8.8.39/database/upscore.php';
       let datapost = JSON.stringify({
         score: this.score,
         idroom:roomid
@@ -119,15 +115,6 @@ shcom:any=[];
     
   } 
 
-  // loadcomment(){
-  //   this.datcom=this.navParams.data;
-  //   console.log(this.datcom);
-  //   this.keyAPI.showcom(this.datcom).subscribe((data:any=[])=>{
-  //     this.shcom = data;
-  //     console.log(shcom);
-  //     }
-  //     );
-  // }
 
 
   }
